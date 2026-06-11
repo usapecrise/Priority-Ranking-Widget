@@ -1,0 +1,32 @@
+body {
+    font-family: Inter, Arial, sans-serif;
+    padding: 15px;
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#ranking-list {
+    list-style: none;
+    padding: 0;
+}
+
+#ranking-list li {
+    background: #ffffff;
+    border: 1px solid #dbe3ea;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 8px;
+    cursor: move;
+    line-height: 1.4;
+}
+
+#saveBtn {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
