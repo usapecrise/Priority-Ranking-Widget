@@ -14,42 +14,63 @@
 
 <h2>Rank the following priorities</h2>
 
-<div class="section-title">Available Issues</div>
+<p class="intro">
+Drag each topic into the ranking positions below, with #1 representing the highest priority and #4 representing the lowest priority.
+</p>
+
+<div class="section-title">Available Topics</div>
 
 <div id="pool">
-    <div class="issue">Grid Readiness and Power Infrastructure for AI Growth</div>
-    <div class="issue">Regulatory Frameworks and Permitting for AI</div>
-    <div class="issue">Emerging Energy Technologies and Scalable Solutions</div>
-    <div class="issue">Other System-Level Impacts</div>
+
+    <div class="issue"
+         data-full="Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation.">
+        Grid Readiness & Power Infrastructure
+    </div>
+
+    <div class="issue"
+         data-full="Regulatory certainty, interconnection processes, permitting timelines, and energy market structures to enable faster and more reliable deployment of AI infrastructure.">
+        Regulatory Frameworks & Permitting
+    </div>
+
+    <div class="issue"
+         data-full="Innovative private sector tools, including predictive and generative AI, advanced cooling, storage, distributed energy systems, and flexible power solutions.">
+        Emerging Energy Technologies
+    </div>
+
+    <div class="issue"
+         data-full="Effects of AI-driven infrastructure growth on water resources, community acceptance, workforce, land use, and natural gas infrastructure.">
+        Water, Communities & Fuel Infrastructure
+    </div>
+
 </div>
 
 <div class="section-title">Ranking</div>
 
 <div class="rank-group">
-    <div class="rank-label">🥇 Most Important</div>
+    <div class="rank-label">🥇 Highest Priority</div>
     <div class="slot" id="rank1">
-        <span class="placeholder">Drop your highest priority here</span>
+        <span class="placeholder">Drop topic here</span>
     </div>
 </div>
 
 <div class="rank-group">
     <div class="rank-label">🥈 High Priority</div>
     <div class="slot" id="rank2">
-        <span class="placeholder">Drop your second priority here</span>
+        <span class="placeholder">Drop topic here</span>
     </div>
 </div>
 
 <div class="rank-group">
     <div class="rank-label">🥉 Moderate Priority</div>
     <div class="slot" id="rank3">
-        <span class="placeholder">Drop your third priority here</span>
+        <span class="placeholder">Drop topic here</span>
     </div>
 </div>
 
 <div class="rank-group">
     <div class="rank-label">4️⃣ Lower Priority</div>
     <div class="slot" id="rank4">
-        <span class="placeholder">Drop your fourth priority here</span>
+        <span class="placeholder">Drop topic here</span>
     </div>
 </div>
 
@@ -65,6 +86,24 @@
 <button id="submitBtn" disabled>
     Complete Ranking
 </button>
+
+<div class="section-title">Topic Descriptions</div>
+
+<div id="descriptions">
+
+    <p><strong>Grid Readiness & Power Infrastructure</strong><br>
+    Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation.</p>
+
+    <p><strong>Regulatory Frameworks & Permitting</strong><br>
+    Regulatory certainty, interconnection processes, permitting timelines, and energy market structures to enable faster and more reliable deployment of AI infrastructure.</p>
+
+    <p><strong>Emerging Energy Technologies</strong><br>
+    Innovative private sector tools, including predictive and generative AI, advanced cooling, storage, distributed energy systems, and flexible power solutions.</p>
+
+    <p><strong>Water, Communities & Fuel Infrastructure</strong><br>
+    Effects of AI-driven infrastructure growth on water resources, community acceptance, workforce, land-use dynamics, and natural gas infrastructure.</p>
+
+</div>
 
 <script src="script.js"></script>
 
