@@ -98,4 +98,14 @@ body{
     margin-bottom: 12px;
 }
 
+    .placeholder {
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 14px;
+}
+
+.slot.filled {
+    border-color: #22c55e;
+    background: #f0fdf4;
+}
 
