@@ -1,39 +1,25 @@
-body{
+```css
+body {
     font-family: Inter, Arial, sans-serif;
-    background:#f8fafc;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+    background: #f8fafc;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
-.section-title{
-    font-weight:600;
-    margin-top:20px;
-    margin-bottom:10px;
+h2 {
+    margin-bottom: 20px;
+    color: #0a1551;
 }
 
-.issue{
-    background:white;
-    border:1px solid #dbe3ea;
-    border-radius:12px;
-    padding:14px;
-    margin-bottom:10px;
-    cursor:grab;
-}
-
-.slot{
-    min-height:55px;
-    background:white;
-    border:2px dashed #dbe3ea;
-    border-radius:12px;
-    padding:10px;
-    margin-bottom:8px;
-}
-
-.rank-label{
-    font-weight:600;
-    color:#0a1551;
-    margin-bottom:5px;
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-top: 20px;
+    margin-bottom: 12px;
 }
 
 /* Available Issues Tray */
@@ -53,7 +39,6 @@ body{
     cursor: grab;
     transition: all 0.15s ease;
 
-    /* card sizing */
     flex: 1 1 300px;
     min-height: 60px;
 
@@ -66,42 +51,25 @@ body{
     box-shadow: 0 2px 8px rgba(0,0,0,.05);
 }
 
-/* Ranking slots */
-.slot {
-    min-height: 70px;
-    background: #fafbfc;
-    border: 2px dashed #dbe3ea;
-    border-radius: 12px;
-    padding: 10px;
+/* Ranking Sections */
+.rank-group {
     margin-bottom: 12px;
 }
 
-/* Rank labels */
 .rank-label {
     font-weight: 600;
     color: #0a1551;
     margin-bottom: 6px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .issue {
-        flex: 1 1 100%;
-    }
-
-.section-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    color: #64748b;
-    margin-bottom: 12px;
-}
-
-    .placeholder {
-    color: #94a3b8;
-    font-style: italic;
-    font-size: 14px;
+/* Ranking Slots */
+.slot {
+    min-height: 70px;
+    background: #fafbfc;
+    border: 2px dashed #dbe3ea;
+    border-radius: 12px;
+    padding: 10px;
+    transition: all .15s ease;
 }
 
 .slot.filled {
@@ -109,3 +77,60 @@ body{
     background: #f0fdf4;
 }
 
+.placeholder {
+    color: #94a3b8;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* Ranking Summary */
+#summary {
+    margin-top: 20px;
+    background: white;
+    border: 1px solid #dbe3ea;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+#summary div {
+    padding: 4px 0;
+}
+
+/* Button */
+#submitBtn {
+    margin-top: 15px;
+
+    background: #0a1551;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 12px 18px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    opacity: .4;
+    cursor: not-allowed;
+
+    transition: all .15s ease;
+}
+
+#submitBtn.ready {
+    opacity: 1;
+    cursor: pointer;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .issue {
+        flex: 1 1 100%;
+    }
+
+    body {
+        padding: 15px;
+    }
+}
+```
