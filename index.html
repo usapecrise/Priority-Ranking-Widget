@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,23 +25,49 @@
 
 <div class="section-title">Ranking</div>
 
-<div class="slot" id="rank1">
-    <span class="placeholder">Drop your #1 priority here</span>
+<div class="rank-group">
+    <div class="rank-label">🥇 Most Important</div>
+    <div class="slot" id="rank1">
+        <span class="placeholder">Drop your highest priority here</span>
+    </div>
 </div>
 
-<div class="slot" id="rank2">
-    <span class="placeholder">Drop your #2 priority here</span>
+<div class="rank-group">
+    <div class="rank-label">🥈 High Priority</div>
+    <div class="slot" id="rank2">
+        <span class="placeholder">Drop your second priority here</span>
+    </div>
 </div>
 
-<div class="slot" id="rank3">
-    <span class="placeholder">Drop your #3 priority here</span>
+<div class="rank-group">
+    <div class="rank-label">🥉 Moderate Priority</div>
+    <div class="slot" id="rank3">
+        <span class="placeholder">Drop your third priority here</span>
+    </div>
 </div>
 
-<div class="slot" id="rank4">
-    <span class="placeholder">Drop your #4 priority here</span>
+<div class="rank-group">
+    <div class="rank-label">4️⃣ Lower Priority</div>
+    <div class="slot" id="rank4">
+        <span class="placeholder">Drop your fourth priority here</span>
+    </div>
 </div>
+
+<h3>Your Ranking</h3>
+
+<div id="summary">
+    <div>1. —</div>
+    <div>2. —</div>
+    <div>3. —</div>
+    <div>4. —</div>
+</div>
+
+<button id="submitBtn" disabled>
+    Complete Ranking
+</button>
 
 <script src="script.js"></script>
 
 </body>
 </html>
+```
