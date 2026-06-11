@@ -22,12 +22,12 @@ body{
 }
 
 .slot{
-    min-height:65px;
+    min-height:55px;
     background:white;
     border:2px dashed #dbe3ea;
     border-radius:12px;
     padding:10px;
-    margin-bottom:15px;
+    margin-bottom:8px;
 }
 
 .rank-label{
@@ -35,3 +35,67 @@ body{
     color:#0a1551;
     margin-bottom:5px;
 }
+
+/* Available Issues Tray */
+#pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* Cards */
+.issue {
+    background: white;
+    border: 1px solid #dbe3ea;
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: grab;
+    transition: all 0.15s ease;
+
+    /* card sizing */
+    flex: 1 1 300px;
+    min-height: 60px;
+
+    display: flex;
+    align-items: center;
+}
+
+.issue:hover {
+    border-color: #b8c7d6;
+    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+}
+
+/* Ranking slots */
+.slot {
+    min-height: 70px;
+    background: #fafbfc;
+    border: 2px dashed #dbe3ea;
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+/* Rank labels */
+.rank-label {
+    font-weight: 600;
+    color: #0a1551;
+    margin-bottom: 6px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .issue {
+        flex: 1 1 100%;
+    }
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 12px;
+}
+
+
