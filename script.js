@@ -1,18 +1,14 @@
-new Sortable(document.getElementById("ranking-list"), {
-    animation: 150
-});
+const containers = [
+ document.getElementById('pool'),
+ document.getElementById('rank1'),
+ document.getElementById('rank2'),
+ document.getElementById('rank3'),
+ document.getElementById('rank4')
+];
 
-document.getElementById("saveBtn").addEventListener("click", function () {
-
-    const items = document.querySelectorAll("#ranking-list li");
-
-    let ranking = [];
-
-    items.forEach((item, index) => {
-        ranking.push((index + 1) + ". " + item.innerText);
-    });
-
-    JFCustomWidget.sendSubmit({
-        value: ranking.join(" | ")
-    });
+containers.forEach(el=>{
+ new Sortable(el,{
+   group:'shared',
+   animation:150
+ });
 });
