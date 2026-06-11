@@ -1,4 +1,3 @@
-```javascript
 const containers = [
     document.getElementById("pool"),
     document.getElementById("rank1"),
@@ -69,4 +68,3 @@ function updateRanking() {
 
 // Run once on page load
 updateRanking();
-```
