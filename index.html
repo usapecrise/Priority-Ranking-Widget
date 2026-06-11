@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>APEC Ranking Widget</title>
+<meta charset="utf-8">
+<title>APEC Priority Ranking</title>
 
-    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-
-    <script src="https://js.jotform.com/JotFormCustomWidget.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
 </head>
 
 <body>
 
-<h3>Rank the following priorities</h3>
+<h2>Rank the following priorities</h2>
 
-<ul id="ranking-list">
-    <li>Grid Readiness and Power Infrastructure for AI Growth</li>
-    <li>Regulatory Frameworks and Permitting for AI</li>
-    <li>Emerging Energy Technologies and Scalable Solutions</li>
-    <li>Other System-Level Impacts: Water, Communities, and Fuel Infrastructure</li>
-</ul>
+<div class="section-title">Available Issues</div>
 
-<button id="saveBtn">Save Ranking</button>
+<div id="pool">
+    <div class="issue">Grid Readiness and Power Infrastructure for AI Growth</div>
+    <div class="issue">Regulatory Frameworks and Permitting for AI</div>
+    <div class="issue">Emerging Energy Technologies and Scalable Solutions</div>
+    <div class="issue">Other System-Level Impacts</div>
+</div>
+
+<div class="section-title">Ranking</div>
+
+<div class="rank-label">#1 Most Important</div>
+<div class="slot" id="rank1"></div>
+
+<div class="rank-label">#2</div>
+<div class="slot" id="rank2"></div>
+
+<div class="rank-label">#3</div>
+<div class="slot" id="rank3"></div>
+
+<div class="rank-label">#4 Least Important</div>
+<div class="slot" id="rank4"></div>
 
 <script src="script.js"></script>
 
