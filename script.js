@@ -76,9 +76,20 @@ function buildTable() {
 
         row.innerHTML = `
             <td class="topic-cell">
-                ${topic}
-            </td>
 
+    <span class="topic-title">
+        ${topic.title}
+    </span>
+
+    <span class="tooltip">
+        ⓘ
+
+        <span class="tooltip-text">
+            ${topic.description}
+        </span>
+    </span>
+
+</td>
             <td class="rank-cell">
 
                 <select class="rank-select">
