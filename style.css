@@ -1,84 +1,85 @@
-* {
-    box-sizing: border-box;
-    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+*{
+    box-sizing:border-box;
+    font-family:Inter,"Segoe UI",Arial,sans-serif;
 }
 
-body {
-    margin: 0;
-    padding: 20px;
-    background: #f5f7fa;
+body{
+    margin:0;
+    padding:12px;
+    background:#ffffff;
 }
 
-.container {
-    max-width: 900px;
-    margin: 0 auto;
+.container{
+    width:100%;
 }
 
-h2 {
-    margin-top: 0;
-    color: #0d2d5c;
-    font-size: 34px;
-    font-weight: 700;
-    margin-bottom: 20px;
+.instructions{
+    font-size:15px;
+    line-height:1.5;
+    color:#374151;
+    margin-bottom:16px;
 }
 
-.intro {
-    font-size: 17px;
-    color: #4a5568;
-    margin-bottom: 25px;
+.ranking-table{
+    width:100%;
+    border-collapse:collapse;
+    border:1px solid #cfd6df;
 }
 
-.table {
-    display: grid;
-    grid-template-columns: 1fr 90px;
-    border: 1px solid #c7ced8;
+.ranking-table th{
+    background:#d7dde6;
+    color:#1f2937;
+    text-align:left;
+    padding:14px;
+    border:1px solid #cfd6df;
+    font-weight:600;
 }
 
-.header {
-    background: #d6dce5;
-    font-weight: 600;
-    padding: 14px;
-    border-bottom: 1px solid #c7ced8;
+.ranking-table td{
+    border:1px solid #cfd6df;
+    padding:14px;
 }
 
-.issue-header {
-    border-right: 1px solid #c7ced8;
+.topic-cell{
+    background:#e8edf4;
+    line-height:1.45;
+    color:#374151;
 }
 
-.rank-header {
-    text-align: center;
+.rank-cell{
+    width:90px;
+    text-align:center;
+    background:#f8fafc;
 }
 
-.issue {
-    background: #e6ebf2;
-    padding: 18px;
-    border-bottom: 1px solid #c7ced8;
-    border-right: 1px solid #c7ced8;
-    line-height: 1.4;
-    font-size: 15px;
+.rank-select{
+    width:60px;
+    height:38px;
+    font-size:16px;
+    text-align:center;
 }
 
-.issue span {
-    color: #5a6472;
+.rank-header{
+    width:90px;
+    text-align:center !important;
 }
 
-.rank {
-    background: #f3f5f8;
-    border-bottom: 1px solid #c7ced8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#error{
+    margin-top:12px;
+    color:#b91c1c;
+    font-size:14px;
+    min-height:18px;
 }
 
-.ranking {
-    width: 60px;
-    height: 40px;
-    font-size: 16px;
-    text-align: center;
-}
+@media(max-width:768px){
 
-#error {
-    color: #c53030;
-    font-size: 14px;
-    margin-top: 12px;
+    .ranking-table th,
+    .ranking-table td{
+        padding:10px;
+    }
+
+    .rank-cell{
+        width:75px;
+    }
+
 }
