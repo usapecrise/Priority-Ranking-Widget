@@ -1,107 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
 
-<title>APEC Priority Ranking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Priority Ranking Widget</title>
 
 <link rel="stylesheet" href="style.css">
+
+<script src="https://js.jotform.com/JotFormCustomWidget.min.js"></script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h2>PRIORITY AREAS FOR DISCUSSION</h2>
-
-    <p class="intro">
-        Please rank the following issue areas from 1 (most important)
-        to 4 (least important). Each rank may only be used once.
-    </p>
-
-    <div class="table">
-
-        <div class="header issue-header">
-            Issue Area
-        </div>
-
-        <div class="header rank-header">
-            Rank
-        </div>
-
-        <div class="issue">
-            Grid Readiness and Power Infrastructure for AI Growth
-            <span>
-                (planning for high-density AI electricity demand through grid modernization,
-                transmission expansion, and flexible generation)
-            </span>
-        </div>
-
-        <div class="rank">
-            <select class="ranking">
-                <option value="">Select</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-
-        <div class="issue">
-            Regulatory Frameworks and Permitting for AI
-            <span>
-                (regulatory certainty, interconnection processes, permitting timelines,
-                and market structures)
-            </span>
-        </div>
-
-        <div class="rank">
-            <select class="ranking">
-                <option value="">Select</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-
-        <div class="issue">
-            Emerging Energy Technologies and Scalable Solutions
-            <span>
-                (advanced cooling, energy storage, distributed energy systems,
-                predictive and generative AI applications)
-            </span>
-        </div>
-
-        <div class="rank">
-            <select class="ranking">
-                <option value="">Select</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-
-        <div class="issue">
-            Other System-Level Impacts: Water, Communities, and Fuel Infrastructure
-            <span>
-                (water resources, community acceptance, workforce, land-use impacts,
-                and natural gas infrastructure)
-            </span>
-        </div>
-
-        <div class="rank">
-            <select class="ranking">
-                <option value="">Select</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-        </div>
-
+    <div class="instructions">
+        Please rank the following issue areas from
+        <strong>1 (most important)</strong> to
+        <strong>N (least important)</strong>.
+        Each rank may only be used once.
     </div>
+
+    <table class="ranking-table">
+
+        <thead>
+            <tr>
+                <th>Issue Area</th>
+                <th class="rank-header">Rank</th>
+            </tr>
+        </thead>
+
+        <tbody id="tableBody"></tbody>
+
+    </table>
 
     <div id="error"></div>
 
