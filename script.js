@@ -97,6 +97,7 @@ topics.forEach(topic => {
     `;
 
     container.appendChild(card);
+
 });
 
 selects =
@@ -144,8 +145,7 @@ selects.forEach(currentSelect => {
             option.disabled = false;
 
             if (
-                usedRanks.includes(option.value)
-                &&
+                usedRanks.includes(option.value) &&
                 option.value !== currentValue
             ) {
                 option.disabled = true;
@@ -239,6 +239,7 @@ JFCustomWidget.subscribe(
                 buildOutput()
             )
         );
+
     }
 );
 ```
