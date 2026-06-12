@@ -1,3 +1,5 @@
+alert("SCRIPT RUNNING");
+
 let topics = [
 {
 title: "Grid Readiness & Power Infrastructure",
