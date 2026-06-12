@@ -40,23 +40,23 @@ for(let t = 0; t < topics.length; t++) {
 
     }
 
-    card.innerHTML =
+   card.innerHTML =
+
+    '<div class="topic-row">' +
 
         '<div class="topic-title">' +
             topics[t].title +
         '</div>' +
 
-        '<div class="topic-description">' +
-            topics[t].description +
-        '</div>' +
+        '<select class="rank-select">' +
+            options +
+        '</select>' +
 
-        '<div class="rank-row">' +
+    '</div>' +
 
-            '<select class="rank-select">' +
-                options +
-            '</select>' +
-
-        '</div>';
+    '<div class="topic-description">' +
+        topics[t].description +
+    '</div>';
 
     container.appendChild(card);
 
