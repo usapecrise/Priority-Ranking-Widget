@@ -1,40 +1,23 @@
-let topics = [];
+let topics = [
+{
+title: "Grid Readiness & Power Infrastructure",
+description: "Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation."
+},
+{
+title: "Regulatory Frameworks & Permitting",
+description: "Regulatory certainty, interconnection processes, permitting timelines, and energy market structures needed to support AI infrastructure deployment."
+},
+{
+title: "Emerging Energy Technologies",
+description: "Advanced cooling systems, energy storage, distributed energy resources, and AI-enabled energy management solutions."
+},
+{
+title: "System-Level Impacts",
+description: "Water resources, workforce development, community impacts, land-use considerations, and natural gas infrastructure requirements."
+}
+];
 
 let selects = [];
-
-function getTopics() {
-
-```
-return [
-
-    {
-        title: "Grid Readiness & Power Infrastructure",
-        description:
-            "Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation."
-    },
-
-    {
-        title: "Regulatory Frameworks & Permitting",
-        description:
-            "Regulatory certainty, interconnection processes, permitting timelines, and energy market structures needed to support AI infrastructure deployment."
-    },
-
-    {
-        title: "Emerging Energy Technologies",
-        description:
-            "Advanced cooling systems, energy storage, distributed energy resources, and AI-enabled energy management solutions."
-    },
-
-    {
-        title: "System-Level Impacts",
-        description:
-            "Water resources, workforce development, community impacts, land-use considerations, and natural gas infrastructure requirements."
-    }
-
-];
-```
-
-}
 
 function buildCards() {
 
@@ -49,7 +32,7 @@ topics.forEach(topic => {
     let options =
         '<option value="">Select</option>';
 
-    for (let i = 1; i <= topics.length; i++) {
+    for(let i = 1; i <= topics.length; i++) {
 
         options += `
             <option value="${i}">
@@ -61,8 +44,7 @@ topics.forEach(topic => {
     const card =
         document.createElement("div");
 
-    card.className =
-        "ranking-item";
+    card.className = "ranking-item";
 
     card.innerHTML = `
 
@@ -85,7 +67,7 @@ topics.forEach(topic => {
         <div class="rank-row">
 
             <span class="rank-label">
-                Rank
+                Rank:
             </span>
 
             <select class="rank-select">
@@ -122,7 +104,7 @@ const usedRanks = [];
 
 selects.forEach(select => {
 
-    if (select.value !== "") {
+    if(select.value !== "") {
         usedRanks.push(select.value);
     }
 
@@ -137,14 +119,14 @@ selects.forEach(currentSelect => {
         .querySelectorAll("option")
         .forEach(option => {
 
-            if (option.value === "") {
+            if(option.value === "") {
                 option.disabled = false;
                 return;
             }
 
             option.disabled = false;
 
-            if (
+            if(
                 usedRanks.includes(option.value) &&
                 option.value !== currentValue
             ) {
@@ -154,98 +136,8 @@ selects.forEach(currentSelect => {
         });
 
 });
-
-sendLiveData();
 ```
 
 }
-
-function isComplete() {
-
-```
-return [...selects].every(
-    select => select.value !== ""
-);
-```
-
-}
-
-function buildOutput() {
-
-```
-return topics.map((topic, index) => {
-
-    return {
-        topic: topic.title,
-        rank: selects[index].value
-    };
-
-});
-```
-
-}
-
-function sendLiveData() {
-
-```
-if (!isComplete()) {
-    return;
-}
-
-const output =
-    JSON.stringify(buildOutput());
-
-if (
-    typeof JFCustomWidget !== "undefined"
-) {
-
-    JFCustomWidget.sendData({
-        value: output
-    });
-
-}
-```
-
-}
-
-if (
-typeof JFCustomWidget !== "undefined"
-) {
-
-```
-JFCustomWidget.subscribe(
-    "submit",
-    function () {
-
-        const error =
-            document.getElementById("error");
-
-        if (!isComplete()) {
-
-            error.innerHTML =
-                "Please rank all items before continuing.";
-
-            JFCustomWidget.sendSubmit({
-                valid: false
-            });
-
-            return;
-        }
-
-        error.innerHTML = "";
-
-        JFCustomWidget.sendSubmit(
-            JSON.stringify(
-                buildOutput()
-            )
-        );
-
-    }
-);
-```
-
-}
-
-topics = getTopics();
 
 buildCards();
