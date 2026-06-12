@@ -119,6 +119,20 @@ body {
     min-height: 18px;
 }
 
+.topic-description{
+    font-size:14px;
+    line-height:1.5;
+    color:#4b5563;
+    margin-top:6px;
+    margin-bottom:12px;
+}
+
+.rank-row{
+    display:flex;
+    justify-content:flex-end;
+}
+
+
 @media (max-width: 768px) {
 
     .topic-title {
