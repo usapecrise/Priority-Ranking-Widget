@@ -25,10 +25,11 @@ body{
 
     position: absolute;
 
-    left: 20px;
-    top: -5px;
+    left: 0px;
+    top: 30px;
 
-    width: 320px;
+    width: 380px;
+    max-width: 450px;
 
     background: white;
     color: #374151;
@@ -54,11 +55,7 @@ body{
 }
 
 .topic-title {
-    font-weight: 600;
-}
-
-.topic-cell {
-    position: relative;
+    font-weight: 500;
 }
 
 .container{
@@ -79,7 +76,7 @@ body{
 }
 
 .ranking-table th{
-    background:#d7dde6;
+    background:#cfd6df
     color:#1f2937;
     text-align:left;
     padding:14px;
@@ -92,27 +89,34 @@ body{
     padding:14px;
 }
 
+.topic-cell:hover{
+    background:#dfe6ef;
+}
+
 .topic-cell{
     background:#e8edf4;
     line-height:1.45;
     color:#374151;
+    position: relative;
+    padding:10px 14px;
 }
-
+    
 .rank-cell{
-    width:90px;
+    width:110px;
     text-align:center;
     background:#f8fafc;
 }
 
 .rank-select{
-    width:60px;
-    height:38px;
+    width:55px;
+    height:34px;
     font-size:16px;
     text-align:center;
+    padding:0 4px;
 }
 
 .rank-header{
-    width:90px;
+    width:1px;
     text-align:center !important;
 }
 
