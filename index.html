@@ -1,98 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Priority Ranking</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+
+<title>APEC Priority Ranking</title>
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card">
+<div class="container">
 
-    <h1>PRIORITY AREAS FOR DISCUSSION</h1>
+    <h2>PRIORITY AREAS FOR DISCUSSION</h2>
 
-    <p class="instructions">
+    <p class="intro">
         Please rank the following issue areas from 1 (most important)
         to 4 (least important). Each rank may only be used once.
     </p>
 
-    <table class="ranking-table">
-        <thead>
-            <tr>
-                <th>Issue Area</th>
-                <th class="rank-col">Rank</th>
-            </tr>
-        </thead>
+    <div class="table">
 
-        <tbody>
+        <div class="header issue-header">
+            Issue Area
+        </div>
 
-            <tr>
-                <td>
-                    Grid Readiness and Power Infrastructure for AI Growth
-                </td>
-                <td>
-                    <select class="rank-select">
-                        <option value="">Select</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
+        <div class="header rank-header">
+            Rank
+        </div>
 
-            <tr>
-                <td>
-                    Regulatory Frameworks and Permitting for AI
-                </td>
-                <td>
-                    <select class="rank-select">
-                        <option value="">Select</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
+        <div class="issue">
+            Grid Readiness and Power Infrastructure for AI Growth
+            <span>
+                (planning for high-density AI electricity demand through grid modernization,
+                transmission expansion, and flexible generation)
+            </span>
+        </div>
 
-            <tr>
-                <td>
-                    Emerging Energy Technologies and Scalable Solutions
-                </td>
-                <td>
-                    <select class="rank-select">
-                        <option value="">Select</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
+        <div class="rank">
+            <select class="ranking">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
 
-            <tr>
-                <td>
-                    Other System-Level Impacts: Water, Communities, and Fuel Infrastructure
-                </td>
-                <td>
-                    <select class="rank-select">
-                        <option value="">Select</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
+        <div class="issue">
+            Regulatory Frameworks and Permitting for AI
+            <span>
+                (regulatory certainty, interconnection processes, permitting timelines,
+                and market structures)
+            </span>
+        </div>
 
-        </tbody>
-    </table>
+        <div class="rank">
+            <select class="ranking">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
 
-    <div class="buttons">
-        <button>Back</button>
-        <button>Next</button>
+        <div class="issue">
+            Emerging Energy Technologies and Scalable Solutions
+            <span>
+                (advanced cooling, energy storage, distributed energy systems,
+                predictive and generative AI applications)
+            </span>
+        </div>
+
+        <div class="rank">
+            <select class="ranking">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <div class="issue">
+            Other System-Level Impacts: Water, Communities, and Fuel Infrastructure
+            <span>
+                (water resources, community acceptance, workforce, land-use impacts,
+                and natural gas infrastructure)
+            </span>
+        </div>
+
+        <div class="rank">
+            <select class="ranking">
+                <option value="">Select</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
     </div>
+
+    <div id="error"></div>
 
 </div>
 
