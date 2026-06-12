@@ -48,3 +48,65 @@ for(let t = 0; t < topics.length; t++) {
     container.appendChild(card);
 
 }
+
+const selects =
+    document.querySelectorAll(".rank-select");
+
+selects.forEach(function(select){
+
+    select.addEventListener(
+        "change",
+        updateOptions
+    );
+
+});
+
+function updateOptions() {
+
+    const usedRanks = [];
+
+    selects.forEach(function(select){
+
+        if(select.value !== "") {
+
+            usedRanks.push(
+                select.value
+            );
+
+        }
+
+    });
+
+    selects.forEach(function(currentSelect){
+
+        const currentValue =
+            currentSelect.value;
+
+        const options =
+            currentSelect.querySelectorAll("option");
+
+        options.forEach(function(option){
+
+            if(option.value === "") {
+
+                option.disabled = false;
+                return;
+
+            }
+
+            option.disabled = false;
+
+            if(
+                usedRanks.includes(option.value) &&
+                option.value !== currentValue
+            ) {
+
+                option.disabled = true;
+
+            }
+
+        });
+
+    });
+
+}
