@@ -140,12 +140,10 @@ body {
 
 }
 
-.topic-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
+    .topic-row{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 
 .topic-title{
     font-size:18px;
@@ -162,10 +160,22 @@ body {
     color:#4b5563;
 }
 
-.rank-select{
-    width:80px;
-    height:36px;
+    .rank-select{
+        width:100%;
+        max-width:120px;
+    }
 
-    flex-shrink:0;
+@media(max-width:768px){
+
+    .topic-row{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .rank-select{
+        width:100%;
+        max-width:120px;
+    }
+
 }
 
