@@ -35,10 +35,6 @@ for(let t = 0; t < topics.length; t++) {
 
         '<div class="rank-row">' +
 
-            '<span class="rank-label">' +
-            'Rank:' +
-            '</span>' +
-
             '<select class="rank-select">' +
             options +
             '</select>' +
