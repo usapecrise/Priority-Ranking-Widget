@@ -141,3 +141,5 @@ selects.forEach(currentSelect => {
 }
 
 buildCards();
+
+alert("SCRIPT LOADED");
