@@ -1,106 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>APEC Priority Ranking</title>
-
-<link rel="stylesheet" href="style.css">
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Priority Ranking</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<h2>Rank the following priorities</h2>
+<div class="card">
 
-<p class="intro">
-Drag each topic into the ranking positions below, with #1 representing the highest priority and #4 representing the lowest priority.
-</p>
+    <h1>PRIORITY AREAS FOR DISCUSSION</h1>
 
-<div class="section-title">Available Topics</div>
+    <p class="instructions">
+        Please rank the following issue areas from 1 (most important)
+        to 4 (least important). Each rank may only be used once.
+    </p>
 
-<div id="pool">
+    <table class="ranking-table">
+        <thead>
+            <tr>
+                <th>Issue Area</th>
+                <th class="rank-col">Rank</th>
+            </tr>
+        </thead>
 
-    <div class="issue"
-         data-full="Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation.">
-        Grid Readiness & Power Infrastructure
+        <tbody>
+
+            <tr>
+                <td>
+                    Grid Readiness and Power Infrastructure for AI Growth
+                </td>
+                <td>
+                    <select class="rank-select">
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Regulatory Frameworks and Permitting for AI
+                </td>
+                <td>
+                    <select class="rank-select">
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Emerging Energy Technologies and Scalable Solutions
+                </td>
+                <td>
+                    <select class="rank-select">
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Other System-Level Impacts: Water, Communities, and Fuel Infrastructure
+                </td>
+                <td>
+                    <select class="rank-select">
+                        <option value="">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <div class="buttons">
+        <button>Back</button>
+        <button>Next</button>
     </div>
-
-    <div class="issue"
-         data-full="Regulatory certainty, interconnection processes, permitting timelines, and energy market structures to enable faster and more reliable deployment of AI infrastructure.">
-        Regulatory Frameworks & Permitting
-    </div>
-
-    <div class="issue"
-         data-full="Innovative private sector tools, including predictive and generative AI, advanced cooling, storage, distributed energy systems, and flexible power solutions.">
-        Emerging Energy Technologies
-    </div>
-
-    <div class="issue"
-         data-full="Effects of AI-driven infrastructure growth on water resources, community acceptance, workforce, land use, and natural gas infrastructure.">
-        Water, Communities & Fuel Infrastructure
-    </div>
-
-</div>
-
-<div class="section-title">Ranking</div>
-
-<div class="rank-group">
-    <div class="rank-label">🥇 Highest Priority</div>
-    <div class="slot" id="rank1">
-        <span class="placeholder">Drop topic here</span>
-    </div>
-</div>
-
-<div class="rank-group">
-    <div class="rank-label">🥈 High Priority</div>
-    <div class="slot" id="rank2">
-        <span class="placeholder">Drop topic here</span>
-    </div>
-</div>
-
-<div class="rank-group">
-    <div class="rank-label">🥉 Moderate Priority</div>
-    <div class="slot" id="rank3">
-        <span class="placeholder">Drop topic here</span>
-    </div>
-</div>
-
-<div class="rank-group">
-    <div class="rank-label">4️⃣ Lower Priority</div>
-    <div class="slot" id="rank4">
-        <span class="placeholder">Drop topic here</span>
-    </div>
-</div>
-
-<h3>Your Ranking</h3>
-
-<div id="summary">
-    <div>1. —</div>
-    <div>2. —</div>
-    <div>3. —</div>
-    <div>4. —</div>
-</div>
-
-<button id="submitBtn" disabled>
-    Complete Ranking
-</button>
-
-<div class="section-title">Topic Descriptions</div>
-
-<div id="descriptions">
-
-    <p><strong>Grid Readiness & Power Infrastructure</strong><br>
-    Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation.</p>
-
-    <p><strong>Regulatory Frameworks & Permitting</strong><br>
-    Regulatory certainty, interconnection processes, permitting timelines, and energy market structures to enable faster and more reliable deployment of AI infrastructure.</p>
-
-    <p><strong>Emerging Energy Technologies</strong><br>
-    Innovative private sector tools, including predictive and generative AI, advanced cooling, storage, distributed energy systems, and flexible power solutions.</p>
-
-    <p><strong>Water, Communities & Fuel Infrastructure</strong><br>
-    Effects of AI-driven infrastructure growth on water resources, community acceptance, workforce, land-use dynamics, and natural gas infrastructure.</p>
 
 </div>
 
