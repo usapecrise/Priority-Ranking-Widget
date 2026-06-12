@@ -22,46 +22,37 @@ let selects = [];
 function buildCards() {
 
 ```
-const container =
-    document.getElementById("rankingContainer");
+const container = document.getElementById("rankingContainer");
+
+if (!container) {
+    return;
+}
 
 container.innerHTML = "";
 
 topics.forEach(topic => {
 
-    let options =
-        '<option value="">Select</option>';
+    let options = '<option value="">Select</option>';
 
-    for(let i = 1; i <= topics.length; i++) {
-
-        options += `
-            <option value="${i}">
-                ${i}
-            </option>
-        `;
+    for (let i = 1; i <= topics.length; i++) {
+        options += `<option value="${i}">${i}</option>`;
     }
 
-    const card =
-        document.createElement("div");
+    const card = document.createElement("div");
 
     card.className = "ranking-item";
 
     card.innerHTML = `
-
         <div class="topic-title">
-
             ${topic.title}
 
             <span class="tooltip">
-
                 ⓘ
 
                 <span class="tooltip-text">
                     ${topic.description}
                 </span>
-
             </span>
-
         </div>
 
         <div class="rank-row">
@@ -75,23 +66,15 @@ topics.forEach(topic => {
             </select>
 
         </div>
-
     `;
 
     container.appendChild(card);
-
 });
 
-selects =
-    document.querySelectorAll(".rank-select");
+selects = document.querySelectorAll(".rank-select");
 
 selects.forEach(select => {
-
-    select.addEventListener(
-        "change",
-        updateOptions
-    );
-
+    select.addEventListener("change", updateOptions);
 });
 ```
 
@@ -103,43 +86,38 @@ function updateOptions() {
 const usedRanks = [];
 
 selects.forEach(select => {
-
-    if(select.value !== "") {
+    if (select.value !== "") {
         usedRanks.push(select.value);
     }
-
 });
 
 selects.forEach(currentSelect => {
 
-    const currentValue =
-        currentSelect.value;
+    const currentValue = currentSelect.value;
 
-    currentSelect
-        .querySelectorAll("option")
-        .forEach(option => {
+    currentSelect.querySelectorAll("option").forEach(option => {
 
-            if(option.value === "") {
-                option.disabled = false;
-                return;
-            }
-
+        if (option.value === "") {
             option.disabled = false;
+            return;
+        }
 
-            if(
-                usedRanks.includes(option.value) &&
-                option.value !== currentValue
-            ) {
-                option.disabled = true;
-            }
+        option.disabled = false;
 
-        });
+        if (
+            usedRanks.includes(option.value) &&
+            option.value !== currentValue
+        ) {
+            option.disabled = true;
+        }
+
+    });
 
 });
 ```
 
 }
 
+document.addEventListener("DOMContentLoaded", function () {
 buildCards();
-
-alert("SCRIPT LOADED");
+});
