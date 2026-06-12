@@ -2,7 +2,7 @@ const topics = [
     "Grid Readiness & Power Infrastructure",
     "Regulatory Frameworks & Permitting",
     "Emerging Energy Technologies",
-    "System-Level Impacts"
+    "Other System-Level Impacts"
 ];
 
 const container =
