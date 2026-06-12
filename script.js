@@ -108,6 +108,64 @@ selects.forEach(function(select){
 
             }
 
+function buildOutput() {
+
+    const results = [];
+
+    selects.forEach(function(select, index){
+
+        results.push({
+            topic: topics[index].title,
+            rank: select.value
+        });
+
+    });
+
+    return JSON.stringify(results);
+}
+
+if(typeof JFCustomWidget !== "undefined") {
+
+    JFCustomWidget.subscribe(
+        "submit",
+        function() {
+
+            let complete = true;
+
+            selects.forEach(function(select){
+
+                if(select.value === "") {
+                    complete = false;
+                }
+
+            });
+
+            if(!complete){
+
+                document.getElementById("error").innerHTML =
+                    "Please rank all issue areas before continuing.";
+
+                JFCustomWidget.sendSubmit({
+                    valid:false
+                });
+
+                return;
+            }
+
+            document.getElementById("error").innerHTML = "";
+
+            JFCustomWidget.sendSubmit(
+                buildOutput()
+            );
+
+        }
+    );
+
+}
+            
+
+            
+
         });
 
     });
