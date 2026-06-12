@@ -21,12 +21,33 @@ function getTopics() {
         console.log(e);
     }
 
-    return [
-        "Grid Readiness and Power Infrastructure for AI Growth",
-        "Regulatory Frameworks and Permitting for AI",
-        "Emerging Energy Technologies and Scalable Solutions",
-        "Other System-Level Impacts: Water, Communities, and Fuel Infrastructure"
-    ];
+return [
+
+{
+    title: "Grid Readiness & Power Infrastructure",
+    description:
+    "Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation."
+},
+
+{
+    title: "Regulatory Frameworks & Permitting",
+    description:
+    "Regulatory certainty, interconnection processes, permitting timelines, and energy market structures needed to support AI infrastructure deployment."
+},
+
+{
+    title: "Emerging Energy Technologies",
+    description:
+    "Advanced cooling systems, energy storage, distributed energy resources, and AI-enabled energy management solutions."
+},
+
+{
+    title: "System-Level Impacts",
+    description:
+    "Water resources, workforce development, community impacts, land-use considerations, and natural gas infrastructure requirements."
+}
+
+];
 }
 
 function buildTable() {
