@@ -1,8 +1,20 @@
 const topics = [
-    "Grid Readiness & Power Infrastructure",
-    "Regulatory Frameworks & Permitting",
-    "Emerging Energy Technologies",
-    "Other System-Level Impacts"
+    {
+        title: "Grid Readiness & Power Infrastructure",
+        description: "Planning for high-density AI electricity demand through grid modernization, transmission expansion, and flexible generation."
+    },
+    {
+        title: "Regulatory Frameworks & Permitting",
+        description: "Regulatory certainty, interconnection processes, permitting timelines, and energy market structures needed to support AI infrastructure deployment."
+    },
+    {
+        title: "Emerging Energy Technologies",
+        description: "Advanced cooling systems, energy storage, distributed energy resources, and AI-enabled energy management solutions."
+    },
+    {
+        title: "Other System-Level Impacts",
+        description: "Effects of AI-driven infrastructure growth on water resources, communities, workforce, land-use dynamics, and supporting fuel infrastructure."
+    }
 ];
 
 const container =
@@ -29,14 +41,19 @@ for(let t = 0; t < topics.length; t++) {
     }
 
     card.innerHTML =
+
         '<div class="topic-title">' +
-        topics[t] +
+            topics[t].title +
+        '</div>' +
+
+        '<div class="topic-description">' +
+            topics[t].description +
         '</div>' +
 
         '<div class="rank-row">' +
 
             '<select class="rank-select">' +
-            options +
+                options +
             '</select>' +
 
         '</div>';
