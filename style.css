@@ -1,70 +1,84 @@
+* {
+    box-sizing: border-box;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+}
+
 body {
-    font-family: "Segoe UI", sans-serif;
-    background: #f4f6f9;
-    padding: 40px;
+    margin: 0;
+    padding: 20px;
+    background: #f5f7fa;
 }
 
-.card {
+.container {
     max-width: 900px;
-    margin: auto;
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0,0,0,.15);
+    margin: 0 auto;
 }
 
-h1 {
-    color: #0b2f5b;
-    font-size: 42px;
-    margin-bottom: 30px;
+h2 {
+    margin-top: 0;
+    color: #0d2d5c;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 20px;
 }
 
-.instructions {
-    font-size: 20px;
-    margin-bottom: 30px;
-    color: #444;
+.intro {
+    font-size: 17px;
+    color: #4a5568;
+    margin-bottom: 25px;
 }
 
-.ranking-table {
-    width: 100%;
-    border-collapse: collapse;
+.table {
+    display: grid;
+    grid-template-columns: 1fr 90px;
+    border: 1px solid #c7ced8;
 }
 
-.ranking-table th,
-.ranking-table td {
-    border: 1px solid #cfd6df;
-    padding: 18px;
-    vertical-align: middle;
+.header {
+    background: #d6dce5;
+    font-weight: 600;
+    padding: 14px;
+    border-bottom: 1px solid #c7ced8;
 }
 
-.ranking-table th {
-    background: #dfe5ee;
-    text-align: left;
+.issue-header {
+    border-right: 1px solid #c7ced8;
 }
 
-.rank-col {
-    width: 120px;
+.rank-header {
     text-align: center;
 }
 
-.rank-select {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+.issue {
+    background: #e6ebf2;
+    padding: 18px;
+    border-bottom: 1px solid #c7ced8;
+    border-right: 1px solid #c7ced8;
+    line-height: 1.4;
+    font-size: 15px;
 }
 
-.buttons {
+.issue span {
+    color: #5a6472;
+}
+
+.rank {
+    background: #f3f5f8;
+    border-bottom: 1px solid #c7ced8;
     display: flex;
-    justify-content: space-between;
-    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
-button {
-    background: #2f5d83;
-    color: white;
-    border: none;
-    padding: 14px 40px;
-    font-size: 18px;
-    border-radius: 6px;
-    cursor: pointer;
+.ranking {
+    width: 60px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#error {
+    color: #c53030;
+    font-size: 14px;
+    margin-top: 12px;
 }
