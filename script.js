@@ -1,22 +1,21 @@
-const selects = document.querySelectorAll(".rank-select");
+const dropdowns = document.querySelectorAll(".ranking");
+const error = document.getElementById("error");
 
-function updateDropdowns() {
+function updateOptions() {
 
-    // Get selected values
-    const selectedValues = [];
+    const usedRanks = [];
 
-    selects.forEach(select => {
+    dropdowns.forEach(select => {
         if (select.value !== "") {
-            selectedValues.push(select.value);
+            usedRanks.push(select.value);
         }
     });
 
-    // Update every dropdown
-    selects.forEach(currentSelect => {
+    dropdowns.forEach(select => {
 
-        const currentValue = currentSelect.value;
+        const currentValue = select.value;
 
-        currentSelect.querySelectorAll("option").forEach(option => {
+        select.querySelectorAll("option").forEach(option => {
 
             if (option.value === "") {
                 option.disabled = false;
@@ -26,15 +25,39 @@ function updateDropdowns() {
             option.disabled = false;
 
             if (
-                selectedValues.includes(option.value) &&
+                usedRanks.includes(option.value) &&
                 option.value !== currentValue
             ) {
                 option.disabled = true;
             }
         });
     });
+
+    validate();
 }
 
-selects.forEach(select => {
-    select.addEventListener("change", updateDropdowns);
+function validate() {
+
+    let count = 0;
+
+    dropdowns.forEach(select => {
+        if (select.value !== "") {
+            count++;
+        }
+    });
+
+    if (count < 4) {
+        error.innerHTML =
+            "Please assign a unique ranking from 1–4 to each topic.";
+        return false;
+    }
+
+    error.innerHTML = "";
+    return true;
+}
+
+dropdowns.forEach(select => {
+    select.addEventListener("change", updateOptions);
 });
+
+updateOptions();
