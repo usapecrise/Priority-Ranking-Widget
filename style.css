@@ -20,33 +20,43 @@ body {
     margin-bottom: 16px;
 }
 
-.ranking-item {
-    background: #e8edf4;
-    border: 1px solid #cfd6df;
-    border-radius: 8px;
-    padding: 14px;
-    margin-bottom: 12px;
-    transition: background 0.2s ease;
+.ranking-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#e8edf4;
+    border:1px solid #cfd6df;
+    border-radius:8px;
+
+    padding:12px 14px;
+    margin-bottom:10px;
+
+    transition:background .2s ease;
 }
 
 .ranking-item:hover {
     background: #dfe6ef;
 }
 
-.topic-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 10px;
+.rank-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
 }
 
-.rank-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.topic-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-size:16px;
+    font-weight:600;
+    color:#1f2937;
+
+    flex:1;
+    margin-right:20px;
 }
 
 .rank-label {
@@ -54,11 +64,10 @@ body {
     color: #4b5563;
 }
 
-.rank-select {
-    width: 70px;
-    height: 36px;
-    font-size: 16px;
-    padding: 0 4px;
+.rank-select{
+    width:65px;
+    height:34px;
+    font-size:15px;
 }
 
 .tooltip {
