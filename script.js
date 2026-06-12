@@ -54,54 +54,44 @@ const selects =
 
 selects.forEach(function(select){
 
-    select.addEventListener(
-        "change",
-        updateOptions
-    );
+    select.addEventListener("change", function(){
 
-});
+        const used = [];
 
-function updateOptions() {
+        selects.forEach(function(s){
 
-    const usedRanks = [];
-
-    selects.forEach(function(select){
-
-        if(select.value !== "") {
-
-            usedRanks.push(
-                select.value
-            );
-
-        }
-
-    });
-
-    selects.forEach(function(currentSelect){
-
-        const currentValue =
-            currentSelect.value;
-
-        const options =
-            currentSelect.querySelectorAll("option");
-
-        options.forEach(function(option){
-
-            if(option.value === "") {
-
-                option.disabled = false;
-                return;
-
+            if(s.value !== ""){
+                used.push(s.value);
             }
 
-            option.disabled = false;
+        });
 
-            if(
-                usedRanks.includes(option.value) &&
-                option.value !== currentValue
-            ) {
+        selects.forEach(function(s){
 
-                option.disabled = true;
+            const current =
+                s.value;
+
+            const options =
+                s.options;
+
+            for(let i = 0; i < options.length; i++){
+
+                const option =
+                    options[i];
+
+                if(option.value === ""){
+                    option.disabled = false;
+                    continue;
+                }
+
+                option.disabled = false;
+
+                if(
+                    used.includes(option.value) &&
+                    option.value !== current
+                ){
+                    option.disabled = true;
+                }
 
             }
 
@@ -109,4 +99,4 @@ function updateOptions() {
 
     });
 
-}
+});
