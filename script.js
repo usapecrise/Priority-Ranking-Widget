@@ -20,7 +20,7 @@ const topics = [
 const container =
     document.getElementById("rankingContainer");
 
-for(let t = 0; t < topics.length; t++) {
+for (let t = 0; t < topics.length; t++) {
 
     const card =
         document.createElement("div");
@@ -31,7 +31,7 @@ for(let t = 0; t < topics.length; t++) {
     let options =
         '<option value="">Select</option>';
 
-    for(let i = 1; i <= topics.length; i++) {
+    for (let i = 1; i <= topics.length; i++) {
 
         options +=
             '<option value="' + i + '">' +
@@ -40,23 +40,23 @@ for(let t = 0; t < topics.length; t++) {
 
     }
 
-   card.innerHTML =
+    card.innerHTML =
 
-    '<div class="topic-row">' +
+        '<div class="topic-row">' +
 
-        '<div class="topic-title">' +
-            topics[t].title +
+            '<div class="topic-title">' +
+                topics[t].title +
+            '</div>' +
+
+            '<select class="rank-select">' +
+                options +
+            '</select>' +
+
         '</div>' +
 
-        '<select class="rank-select">' +
-            options +
-        '</select>' +
-
-    '</div>' +
-
-    '<div class="topic-description">' +
-        topics[t].description +
-    '</div>';
+        '<div class="topic-description">' +
+            topics[t].description +
+        '</div>';
 
     container.appendChild(card);
 
@@ -69,44 +69,57 @@ selects.forEach(function(select){
 
     select.addEventListener("change", function(){
 
-        const used = [];
+        updateOptions();
+        sendLiveData();
 
-        selects.forEach(function(s){
+    });
 
-            if(s.value !== ""){
-                used.push(s.value);
-            }
+});
 
-        });
+function updateOptions() {
 
-        selects.forEach(function(s){
+    const used = [];
 
-            const current =
-                s.value;
+    selects.forEach(function(s){
 
-            const options =
-                s.options;
+        if (s.value !== "") {
+            used.push(s.value);
+        }
 
-            for(let i = 0; i < options.length; i++){
+    });
 
-                const option =
-                    options[i];
+    selects.forEach(function(s){
 
-                if(option.value === ""){
-                    option.disabled = false;
-                    continue;
-                }
+        const current =
+            s.value;
 
+        const options =
+            s.options;
+
+        for (let i = 0; i < options.length; i++) {
+
+            const option =
+                options[i];
+
+            if (option.value === "") {
                 option.disabled = false;
-
-                if(
-                    used.includes(option.value) &&
-                    option.value !== current
-                ){
-                    option.disabled = true;
-                }
-
+                continue;
             }
+
+            option.disabled = false;
+
+            if (
+                used.includes(option.value) &&
+                option.value !== current
+            ) {
+                option.disabled = true;
+            }
+
+        }
+
+    });
+
+}
 
 function buildOutput() {
 
@@ -122,9 +135,22 @@ function buildOutput() {
     });
 
     return JSON.stringify(results);
+
 }
 
-if(typeof JFCustomWidget !== "undefined") {
+function sendLiveData() {
+
+    if (typeof JFCustomWidget !== "undefined") {
+
+        JFCustomWidget.sendData({
+            value: buildOutput()
+        });
+
+    }
+
+}
+
+if (typeof JFCustomWidget !== "undefined") {
 
     JFCustomWidget.subscribe(
         "submit",
@@ -134,19 +160,19 @@ if(typeof JFCustomWidget !== "undefined") {
 
             selects.forEach(function(select){
 
-                if(select.value === "") {
+                if (select.value === "") {
                     complete = false;
                 }
 
             });
 
-            if(!complete){
+            if (!complete) {
 
                 document.getElementById("error").innerHTML =
                     "Please rank all issue areas before continuing.";
 
                 JFCustomWidget.sendSubmit({
-                    valid:false
+                    valid: false
                 });
 
                 return;
@@ -162,12 +188,3 @@ if(typeof JFCustomWidget !== "undefined") {
     );
 
 }
-            
-
-            
-
-        });
-
-    });
-
-});
