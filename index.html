@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 
@@ -17,27 +18,19 @@
 
 <div class="container">
 
-    <div class="instructions">
-        Please rank the following issue areas from
-        <strong>1 (most important)</strong> to
-        <strong>N (least important)</strong>.
-        Each rank may only be used once.
-    </div>
+```
+<div class="instructions">
+    Please rank the following issue areas from
+    <strong>1 (most important)</strong> to
+    <strong>N (least important)</strong>.
+    Each rank may only be used once.
+</div>
 
-    <table class="ranking-table">
+<!-- Cards will be generated here -->
+<div id="rankingContainer"></div>
 
-        <thead>
-            <tr>
-                <th>Issue Area</th>
-                <th class="rank-header">Rank</th>
-            </tr>
-        </thead>
-
-        <tbody id="tableBody"></tbody>
-
-    </table>
-
-    <div id="error"></div>
+<div id="error"></div>
+```
 
 </div>
 
