@@ -1,63 +1,193 @@
-const dropdowns = document.querySelectorAll(".ranking");
-const error = document.getElementById("error");
+let topics = [];
+let selects = [];
+
+function getTopics() {
+
+    try {
+
+        const settings =
+            JFCustomWidget.getWidgetSettings();
+
+        if (settings && settings.topics) {
+
+            if (Array.isArray(settings.topics)) {
+                return settings.topics;
+            }
+
+            return JSON.parse(settings.topics);
+        }
+
+    } catch (e) {
+        console.log(e);
+    }
+
+    return [
+        "Grid Readiness and Power Infrastructure for AI Growth",
+        "Regulatory Frameworks and Permitting for AI",
+        "Emerging Energy Technologies and Scalable Solutions",
+        "Other System-Level Impacts: Water, Communities, and Fuel Infrastructure"
+    ];
+}
+
+function buildTable() {
+
+    const tableBody =
+        document.getElementById("tableBody");
+
+    tableBody.innerHTML = "";
+
+    topics.forEach((topic) => {
+
+        let options =
+            '<option value="">-</option>';
+
+        for (let i = 1; i <= topics.length; i++) {
+
+            options += `
+                <option value="${i}">
+                    ${i}
+                </option>
+            `;
+        }
+
+        const row =
+            document.createElement("tr");
+
+        row.innerHTML = `
+            <td class="topic-cell">
+                ${topic}
+            </td>
+
+            <td class="rank-cell">
+
+                <select class="rank-select">
+                    ${options}
+                </select>
+
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+
+    selects =
+        document.querySelectorAll(".rank-select");
+
+    selects.forEach(select => {
+
+        select.addEventListener(
+            "change",
+            updateOptions
+        );
+
+    });
+}
 
 function updateOptions() {
 
     const usedRanks = [];
 
-    dropdowns.forEach(select => {
+    selects.forEach(select => {
+
         if (select.value !== "") {
             usedRanks.push(select.value);
         }
+
     });
 
-    dropdowns.forEach(select => {
+    selects.forEach(currentSelect => {
 
-        const currentValue = select.value;
+        const currentValue =
+            currentSelect.value;
 
-        select.querySelectorAll("option").forEach(option => {
+        currentSelect
+            .querySelectorAll("option")
+            .forEach(option => {
 
-            if (option.value === "") {
+                if (option.value === "") {
+                    option.disabled = false;
+                    return;
+                }
+
                 option.disabled = false;
-                return;
-            }
 
-            option.disabled = false;
+                if (
+                    usedRanks.includes(option.value)
+                    &&
+                    option.value !== currentValue
+                ) {
+                    option.disabled = true;
+                }
 
-            if (
-                usedRanks.includes(option.value) &&
-                option.value !== currentValue
-            ) {
-                option.disabled = true;
-            }
-        });
+            });
+
     });
 
-    validate();
+    sendLiveData();
 }
 
-function validate() {
+function isComplete() {
 
-    let count = 0;
+    return [...selects].every(
+        select => select.value !== ""
+    );
+}
 
-    dropdowns.forEach(select => {
-        if (select.value !== "") {
-            count++;
-        }
+function buildOutput() {
+
+    return topics.map((topic, index) => {
+
+        return {
+            topic: topic,
+            rank: selects[index].value
+        };
+
     });
+}
 
-    if (count < 4) {
-        error.innerHTML =
-            "Please assign a unique ranking from 1–4 to each topic.";
-        return false;
+function sendLiveData() {
+
+    if (!isComplete()) {
+        return;
     }
 
-    error.innerHTML = "";
-    return true;
+    const output =
+        JSON.stringify(buildOutput());
+
+    JFCustomWidget.sendData({
+        value: output
+    });
 }
 
-dropdowns.forEach(select => {
-    select.addEventListener("change", updateOptions);
-});
+JFCustomWidget.subscribe(
+    "submit",
+    function () {
 
-updateOptions();
+        const error =
+            document.getElementById("error");
+
+        if (!isComplete()) {
+
+            error.innerHTML =
+                "Please rank all items before continuing.";
+
+            JFCustomWidget.sendSubmit({
+                valid: false
+            });
+
+            return;
+        }
+
+        error.innerHTML = "";
+
+        JFCustomWidget.sendSubmit(
+            JSON.stringify(
+                buildOutput()
+            )
+        );
+    }
+);
+
+topics = getTopics();
+
+buildTable();
