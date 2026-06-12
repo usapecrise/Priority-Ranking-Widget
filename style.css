@@ -1,134 +1,70 @@
 body {
-    font-family: Inter, Arial, sans-serif;
-    background: #f8fafc;
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f6f9;
+    padding: 40px;
+}
+
+.card {
     max-width: 900px;
     margin: auto;
-    padding: 20px;
-}
-
-h2 {
-    margin-bottom: 20px;
-    color: #0a1551;
-}
-
-.section-title {
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: .05em;
-    text-transform: uppercase;
-    color: #64748b;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-
-/* Available Issues Tray */
-#pool {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 25px;
-}
-
-/* Cards */
-.issue {
     background: white;
-    border: 1px solid #dbe3ea;
-    border-radius: 12px;
-
-    padding: 10px 14px;
-
-    min-height: 50px;
-
-    display: flex;
-    align-items: center;
-
-    width: calc(50% - 6px);
-    flex: 0 0 calc(50% - 6px);
-
-    cursor: grab;
-}
-
-.issue:hover {
-    border-color: #b8c7d6;
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
-}
-
-/* Ranking Sections */
-.rank-group {
-    margin-bottom: 8px;
-}
-
-.rank-label {
-    font-weight: 600;
-    color: #0a1551;
-    margin-bottom: 6px;
-}
-
-/* Ranking Slots */
-.slot {
-    min-height: 50px;
-    background: #fafbfc;
-    border: 2px dashed #dbe3ea;
-    border-radius: 12px;
-    padding: 10px;
-    transition: all .15s ease;
-}
-
-.slot.filled {
-    border-color: #22c55e;
-    background: #f0fdf4;
-}
-
-.placeholder {
-    color: #94a3b8;
-    font-style: italic;
-    font-size: 14px;
-}
-
-/* Ranking Summary */
-#summary {
-    margin-top: 20px;
-    background: white;
-    border: 1px solid #dbe3ea;
-    border-radius: 12px;
-    padding: 15px;
-}
-
-#summary div {
-    padding: 4px 0;
-}
-
-/* Button */
-#submitBtn {
-    margin-top: 15px;
-
-    background: #0a1551;
-    color: white;
-
-    border: none;
+    padding: 40px;
     border-radius: 10px;
-
-    padding: 12px 18px;
-
-    font-size: 15px;
-    font-weight: 600;
-
-    opacity: .4;
-    cursor: not-allowed;
-
-    transition: all .15s ease;
+    box-shadow: 0 3px 12px rgba(0,0,0,.15);
 }
 
-#submitBtn.ready {
-    opacity: 1;
+h1 {
+    color: #0b2f5b;
+    font-size: 42px;
+    margin-bottom: 30px;
+}
+
+.instructions {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.ranking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ranking-table th,
+.ranking-table td {
+    border: 1px solid #cfd6df;
+    padding: 18px;
+    vertical-align: middle;
+}
+
+.ranking-table th {
+    background: #dfe5ee;
+    text-align: left;
+}
+
+.rank-col {
+    width: 120px;
+    text-align: center;
+}
+
+.rank-select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+button {
+    background: #2f5d83;
+    color: white;
+    border: none;
+    padding: 14px 40px;
+    font-size: 18px;
+    border-radius: 6px;
     cursor: pointer;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-    .issue {
-        width: 100%;
-        flex: 0 0 100%;
-    }
 }
