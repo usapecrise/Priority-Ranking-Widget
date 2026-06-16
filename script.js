@@ -114,34 +114,14 @@ function sendLiveData() {
 if (typeof JFCustomWidget !== "undefined") {
 
     JFCustomWidget.subscribe("ready", function () {
-        sendLiveData();
+        console.log("Widget Ready");
     });
 
     JFCustomWidget.subscribe("submit", function () {
 
-        const incomplete = Array.from(selects).some(
-            select => select.value === ""
-        );
+        alert("SUBMIT FIRED");
 
-        if (incomplete) {
-
-            document.getElementById("error").innerHTML =
-                "Please rank all issue areas before continuing.";
-
-            JFCustomWidget.sendSubmit({
-                valid: false,
-                value: ""
-            });
-
-            return;
-        }
-
-        document.getElementById("error").innerHTML = "";
-
-        JFCustomWidget.sendSubmit({
-            valid: true,
-            value: buildOutput()
-        });
+        JFCustomWidget.sendSubmit("test");
 
     });
 
