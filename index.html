@@ -29,6 +29,19 @@
 
     <script src="script.js"></script>
 
+    <script>
+        function resizeWidget() {
+            if (window.JFCustomWidget) {
+                JFCustomWidget.requestFrameResize({
+                    height: document.body.scrollHeight + 50
+                });
+            }
+        }
+
+        window.addEventListener('load', resizeWidget);
+        window.addEventListener('resize', resizeWidget);
+    </script>
+
 </body>
 
 </html>
