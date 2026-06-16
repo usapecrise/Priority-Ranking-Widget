@@ -17,115 +17,78 @@ const topics = [
     }
 ];
 
-const container =
-    document.getElementById("rankingContainer");
+const container = document.getElementById("rankingContainer");
 
 for (let t = 0; t < topics.length; t++) {
 
-    const card =
-        document.createElement("div");
+    const card = document.createElement("div");
 
-    card.className =
-        "ranking-item";
+    card.className = "ranking-item";
 
-    let options =
-        '<option value="">Select</option>';
+    let options = '<option value="">Select</option>';
 
     for (let i = 1; i <= topics.length; i++) {
-
-        options +=
-            '<option value="' + i + '">' +
-            i +
-            '</option>';
-
+        options += `<option value="${i}">${i}</option>`;
     }
 
-    card.innerHTML =
+    card.innerHTML = `
+        <div class="topic-row">
+            <div class="topic-title">${topics[t].title}</div>
+            <select class="rank-select">
+                ${options}
+            </select>
+        </div>
 
-        '<div class="topic-row">' +
-
-            '<div class="topic-title">' +
-                topics[t].title +
-            '</div>' +
-
-            '<select class="rank-select">' +
-                options +
-            '</select>' +
-
-        '</div>' +
-
-        '<div class="topic-description">' +
-            topics[t].description +
-        '</div>';
+        <div class="topic-description">
+            ${topics[t].description}
+        </div>
+    `;
 
     container.appendChild(card);
-
 }
 
-const selects =
-    document.querySelectorAll(".rank-select");
+const selects = document.querySelectorAll(".rank-select");
 
-selects.forEach(function(select){
-
-    select.addEventListener("change", function(){
-
+selects.forEach(function (select) {
+    select.addEventListener("change", function () {
         updateOptions();
         sendLiveData();
-
     });
-
 });
 
 function updateOptions() {
 
     const used = [];
 
-    selects.forEach(function(s){
-
+    selects.forEach(function (s) {
         if (s.value !== "") {
             used.push(s.value);
         }
-
     });
 
-    selects.forEach(function(s){
+    selects.forEach(function (s) {
 
-        const current =
-            s.value;
+        const current = s.value;
 
-        const options =
-            s.options;
-
-        for (let i = 0; i < options.length; i++) {
-
-            const option =
-                options[i];
+        Array.from(s.options).forEach(function (option) {
 
             if (option.value === "") {
                 option.disabled = false;
-                continue;
+                return;
             }
 
-            option.disabled = false;
-
-            if (
+            option.disabled =
                 used.includes(option.value) &&
-                option.value !== current
-            ) {
-                option.disabled = true;
-            }
-
-        }
-
+                option.value !== current;
+        });
     });
-
 }
 
 function buildOutput() {
 
     const results = [];
 
-    selects.forEach(function(select, index){
+    selects.forEach(function (select, index) {
 
         results.push({
             topic: topics[index].title,
@@ -135,7 +98,6 @@ function buildOutput() {
     });
 
     return JSON.stringify(results);
-
 }
 
 function sendLiveData() {
@@ -147,44 +109,40 @@ function sendLiveData() {
         });
 
     }
-
 }
 
 if (typeof JFCustomWidget !== "undefined") {
 
-    JFCustomWidget.subscribe(
-        "submit",
-        function() {
+    JFCustomWidget.subscribe("ready", function () {
+        sendLiveData();
+    });
 
-            let complete = true;
+    JFCustomWidget.subscribe("submit", function () {
 
-            selects.forEach(function(select){
+        const incomplete = Array.from(selects).some(
+            select => select.value === ""
+        );
 
-                if (select.value === "") {
-                    complete = false;
-                }
+        if (incomplete) {
 
+            document.getElementById("error").innerHTML =
+                "Please rank all issue areas before continuing.";
+
+            JFCustomWidget.sendSubmit({
+                valid: false,
+                value: ""
             });
 
-            if (!complete) {
-
-                document.getElementById("error").innerHTML =
-                    "Please rank all issue areas before continuing.";
-
-                JFCustomWidget.sendSubmit({
-                    valid: false
-                });
-
-                return;
-            }
-
-            document.getElementById("error").innerHTML = "";
-
-            JFCustomWidget.sendSubmit(
-                buildOutput()
-            );
-
+            return;
         }
-    );
+
+        document.getElementById("error").innerHTML = "";
+
+        JFCustomWidget.sendSubmit({
+            valid: true,
+            value: buildOutput()
+        });
+
+    });
 
 }
