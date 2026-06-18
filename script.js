@@ -97,11 +97,13 @@ function buildOutput() {
 
     });
 
-results.sort((a, b) => parseInt(a.rank) - parseInt(b.rank));
+    results.sort((a, b) => parseInt(a.rank) - parseInt(b.rank));
 
-return results.map(item =>
-    item.rank + ". " + item.topic
-).join("\n");
+    return results.map(item =>
+        item.rank + ". " + item.topic
+    ).join("\n");
+
+}   // <-- YOU ARE MISSING THIS BRACE
 
 function sendLiveData() {
 
@@ -113,7 +115,6 @@ function sendLiveData() {
 
     }
 }
-
 if (typeof JFCustomWidget !== "undefined") {
 
     JFCustomWidget.subscribe("ready", function () {
