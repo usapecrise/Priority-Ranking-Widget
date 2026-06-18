@@ -97,8 +97,11 @@ function buildOutput() {
 
     });
 
-    return JSON.stringify(results);
-}
+results.sort((a, b) => parseInt(a.rank) - parseInt(b.rank));
+
+return results.map(item =>
+    item.rank + ". " + item.topic
+).join("\n");
 
 function sendLiveData() {
 
