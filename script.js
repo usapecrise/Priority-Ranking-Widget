@@ -119,10 +119,12 @@ if (typeof JFCustomWidget !== "undefined") {
 
     JFCustomWidget.subscribe("submit", function () {
 
-        alert("SUBMIT FIRED");
+    const output = buildOutput();
 
-        JFCustomWidget.sendSubmit("test");
+    alert(output);
 
-    });
+    JFCustomWidget.sendSubmit(output);
+
+});
 
 }
