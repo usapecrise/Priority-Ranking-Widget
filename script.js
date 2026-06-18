@@ -117,13 +117,12 @@ if (typeof JFCustomWidget !== "undefined") {
         console.log("Widget Ready");
     });
 
-    JFCustomWidget.subscribe("submit", function () {
+JFCustomWidget.subscribe("submit", function () {
 
-    const output = buildOutput();
-
-    alert(output);
-
-    JFCustomWidget.sendSubmit(output);
+    JFCustomWidget.sendSubmit({
+        valid: true,
+        value: buildOutput()
+    });
 
 });
 
